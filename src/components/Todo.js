@@ -5,6 +5,8 @@ function Todo() {
 
   const [item, setitem] = useState([]);
 
+  let [key, setkey] = useState([]);
+
   const handleChange = (event) => {
     settask(event.target.value);
   };
@@ -13,10 +15,18 @@ function Todo() {
     setitem((olditem) => {
       return [...olditem, task];
     });
+
+    setkey((assignKey) => {
+      key = Math.random();
+      return [...assignKey, key];
+    });
+    item.id = key;
+
+    console.log(item.id);
   };
 
   const del = () => {
-    console.log("you can't imagine how happy iam now!!!");
+    //console.log("you can't imagine how happy iam now!!!");
   };
   return (
     <div>
@@ -30,7 +40,7 @@ function Todo() {
         {item.map((item) => {
           return (
             <>
-              {item}{" "}
+              {item}
               <button type="button" onClick={del}>
                 X
               </button>
