@@ -5,7 +5,7 @@ function Todo() {
 
   const [item, setitem] = useState([]);
 
-  let [key, setkey] = useState([]);
+  // let [key, setkey] = useState([]);
 
   const handleChange = (event) => {
     settask(event.target.value);
@@ -16,17 +16,19 @@ function Todo() {
       return [...olditem, task];
     });
 
-    setkey((assignKey) => {
-      key = Math.random();
-      return [...assignKey, key];
-    });
-    item.id = key;
+    // setkey((assignKey) => {
+    //   key = Math.random();
+    //   return [...assignKey, key];
+    // });
+    // task.id = key;
 
-    console.log(item.id);
+    //console.log(item.id);
   };
 
   const del = () => {
-    //console.log("you can't imagine how happy iam now!!!");
+    setitem(() => {
+      return item.splice(0, 0);
+    });
   };
   return (
     <div>
