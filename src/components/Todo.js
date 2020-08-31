@@ -14,6 +14,10 @@ function Todo() {
       return [...olditem, task];
     });
   };
+
+  const del = () => {
+    console.log("you can't imagine how happy iam now!!!");
+  };
   return (
     <div>
       <form>
@@ -23,10 +27,14 @@ function Todo() {
         </button>
         <br />
 
-        {item.map((itemval) => {
+        {item.map((item) => {
           return (
             <>
-              {itemval} <br />
+              {item}{" "}
+              <button type="button" onClick={del}>
+                X
+              </button>
+              <br />
             </>
           );
         })}
