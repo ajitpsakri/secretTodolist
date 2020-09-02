@@ -31,7 +31,7 @@ function Todo() {
     <div>
       <form>
         <input type="text" value={task} onChange={handleChange} />
-        <button type="button" onClick={submit}>
+        <button className="btn btn-success" type="button" onClick={submit}>
           +
         </button>
         <br />
