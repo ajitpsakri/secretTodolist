@@ -30,11 +30,33 @@ function Todo() {
   return (
     <div>
       <form>
-        <input type="text" value={task} onChange={handleChange} />
-        <button className="btn btn-success" type="button" onClick={submit}>
-          +
-        </button>
-        <br />
+        <div className="d-flex bd-highlight">
+          <div className="p-2 flex-fill bd-highlight">
+            <div className="input-group input-group-lg">
+              <div className="input-group-prepend"></div>
+
+              <input
+                type="text"
+                className="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg"
+                value={task}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="p-2 flex-fill bd-highlight">
+            <div className="button button5">
+              <button
+                className="btn btn-success btn-lg"
+                type="button"
+                onClick={submit}
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
 
         {item.map((item, index) => {
           return (
