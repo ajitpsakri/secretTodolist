@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import ToDoLists from "./ToDoLists";
 function Todo() {
   const [task, settask] = useState("");
 
@@ -16,37 +17,34 @@ function Todo() {
       return [...olditem, task];
     });
 
-    // setkey((assignKey) => {
-    //   key = Math.random();
-    //   return [...assignKey, key];
-    // });
-    // task.id = key;
-
-    //console.log(item.id);
+    settask("");
   };
 
-  const del = () => {
-    setitem(() => {
-      return item.splice(0, 0);
+  const deleteItem = (id) => {
+    setitem((olditem) => {
+      return olditem.filter((arrElem, index) => {
+        return index !== id;
+      });
     });
   };
   return (
     <div>
       <form>
-        <input type="text" onChange={handleChange} />
+        <input type="text" value={task} onChange={handleChange} />
         <button type="button" onClick={submit}>
           +
         </button>
         <br />
 
-        {item.map((item) => {
+        {item.map((item, index) => {
           return (
             <>
-              {item}
-              <button type="button" onClick={del}>
-                X
-              </button>
-              <br />
+              <ToDoLists
+                key={index}
+                id={index}
+                text={item}
+                onSelect={deleteItem}
+              />
             </>
           );
         })}
